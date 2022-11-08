@@ -1,5 +1,5 @@
 import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
-import { createUserDto } from './dto/users.dto';
+import { createUserDto, loginUserDto } from './dto/users.dto';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -12,10 +12,17 @@ async getNames (){
     return await this.usersService.getNames()
 }
 
+@Post('login')
+@HttpCode(200)
+async login(@Body() user: loginUserDto): Promise<loginUserDto | null>{
+    return await this.usersService.loginUser(user)
+
+}
 @Post('register')
 @HttpCode(200)
 async create(@Body() user: createUserDto){
     return this.usersService.addUser(user)
 }
+
 
 }

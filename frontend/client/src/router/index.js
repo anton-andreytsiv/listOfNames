@@ -10,6 +10,11 @@ const routes = [
         component: ListPage
     },
     {
+        path: "/list",
+        name: "List2",
+        component: ListPage
+    },
+    {
         path: "/login",
         name: "LoginPage",
         component: LoginPage

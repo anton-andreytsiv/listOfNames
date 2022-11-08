@@ -34,7 +34,7 @@ export default {
         }else {
           const res = await loginService.register(this.name, this.email, this.password)
           if (res){
-            alert('successful registration')
+            alert('successful registration of user')
             this.$router.push({path:'/ListPage'})       
           }
         }

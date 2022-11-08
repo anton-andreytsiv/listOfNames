@@ -1,5 +1,5 @@
 <template>
-    <div class='login'>
+    <div>
     Please login
      <input type="text" name="email" placeholder="Username" required v-model="email"> 
      <input type="password" name="password" placeholder="Password" required v-model="password">
@@ -25,7 +25,7 @@
       login: async function () {
         const res = await loginService.login(this.email, this.password)
         if (res){
-            this.$router.push({path:'/ListPage'})
+            this.$router.push({path:'/'})
         }
         else {
             alert('error');
@@ -37,11 +37,6 @@
   
 
   <style scoped>
-  .login {
-    flex:1;
-    float: right;
-    min-height: 50 px;
-  }
   input {
     display:block;
     width: 150px;

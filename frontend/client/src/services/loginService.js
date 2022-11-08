@@ -16,7 +16,7 @@ class loginService {
       withCredentials: true
       
     }).then (response => { 
-      if (response.status == 200) {
+      if (response.data.name) {
         localStorage.setItem('user', response.data.name);
        return response.data;
       }

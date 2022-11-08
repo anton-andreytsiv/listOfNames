@@ -1,15 +1,26 @@
 <template>
-  
+  <Suspense>
+    <RouterView></RouterView>
+  </Suspense>
 </template>
 
 <script>
-import ListPage from './components/ListPage.vue'
+import { ref } from 'vue'
+
 
 export default {
   name: 'App',
-  components: {
-    ListPage
+  
+
+setup(){
+
+  const user = ref (null)
+
+  if (localStorage.getItem('user')){
+    user.value = localStorage.getItem('user')
   }
+  return {user}
+},
 }
 </script>
 

@@ -3,3 +3,8 @@ export class createUserDto  {
     email: string
     password: string
 }
+
+export class loginUserDto  {
+    email: string
+    password: string
+}
