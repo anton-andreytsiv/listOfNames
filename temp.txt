@@ -1,0 +1,10 @@
+ client:
+    container_name: client
+    build:
+      context: ./frontend/
+      dockerfile: ./client/Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/client:/app/
+        
