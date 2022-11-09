@@ -1,12 +1,13 @@
 <template>
-  <div >
+  <div class="reg">
   <h2>Please enter your data for registration</h2>
-   <input type="text" name="name" placeholder="Name" required v-model="name"> 
-   <input type="text" name="email" placeholder="email" required v-model="email"> 
-   <input type="password" name="password" placeholder="Password" required v-model="password">
-   <input type="password" name="password2" placeholder="repeat password" required v-model="password2">
-
+   <input type="text" name="name" placeholder="Name" required v-model="name"> <br />
+   <input type="text" name="email" placeholder="Email" required v-model="email"> <br />
+   <input type="password" name="password" placeholder="Password" required v-model="password"><br />
+   <input type="password" name="password2" placeholder="Repeat password" required v-model="password2"><br />
    <input type="submit" value="register" v-on:click="register">
+   <hr />
+   or <RouterLink to="/login">login</RouterLink>
    </div>
 </template>
 
@@ -35,7 +36,7 @@ export default {
           const res = await loginService.register(this.name, this.email, this.password)
           if (res){
             alert('successful registration of user')
-            this.$router.push({path:'/ListPage'})       
+            this.$router.push({path:'/'})       
           }
         }
     }
@@ -45,9 +46,11 @@ export default {
 
 <style scoped>
 input {
-    display:block;
     width: 150px;
     float:none;
     margin: 10px 10px;
+}
+.reg{
+  text-align: center;
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="login">
     Please login
      <input type="text" name="email" placeholder="Username" required v-model="email"> 
      <input type="password" name="password" placeholder="Password" required v-model="password">
      <input type="submit" value="login" v-on:click="login">
      <hr />
-     <router-link to="/register">register</router-link>
+     or <router-link to="/register">register</router-link>
      </div>
   </template>
   
@@ -38,10 +38,13 @@
 
   <style scoped>
   input {
-    display:block;
     width: 150px;
     float:none;
     margin: 10px 10px;
-}
+    }
+    .login{
+        display: block;
+        text-align: center;
+    }
   </style>
   

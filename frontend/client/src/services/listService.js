@@ -1,14 +1,8 @@
 import axios from "axios";
-import { watchEffect } from 'vue'
-import { useCookies } from "vue3-cookies";
-import jwt_decode from "jwt-decode";
+
 
 const url = "http://localhost:8000/list/";
-const { cookies } = useCookies();
-let token = cookies.get('token');
-if (token){
-   token =  jwt_decode(token);
-}
+
 
 class listService {
 
