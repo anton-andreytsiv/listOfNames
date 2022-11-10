@@ -15,22 +15,22 @@ model UserModel {
   email String @unique
   password String
   name String
-  orders Oders []
+  orders Orders []
 }
 
 model ListOfNames {
   id Int @id @default(autoincrement())
   name String
-  oders Oders[]
+  orders Orders[]
 }
 
-model Oders{
+model Orders{
   id Int @id @default(autoincrement())
   user UserModel @relation(fields: [userId], references: [id])
   userId Int
   order Int
-  list ListOfNames @relation(fields: [ListId], references: [id])
-  ListId Int
-  
+  name ListOfNames @relation(fields: [nameId], references: [id])
+  nameId Int
+  @@unique([userId, nameId])
 }
 

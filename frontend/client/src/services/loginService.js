@@ -18,6 +18,8 @@ class loginService {
     }).then (response => { 
       if (response.data.name) {
         localStorage.setItem('user', response.data.name);
+        localStorage.setItem('userId', response.data.id);
+
        return response.data;
       }
       else {

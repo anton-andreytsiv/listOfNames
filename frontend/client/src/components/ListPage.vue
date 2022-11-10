@@ -2,6 +2,7 @@
     <div> 
     <div v-if="user">
         <div class="logout">Hello {{user}}<br /><button @click="logOut">logout</button></div>
+    <div class="main">    
     <div class="drop-zone" @drop="onDrop($event)"  @dragover.prevent  @dragenter.prevent>
       <div v-if="names">list of names
         <div v-for="name, index in names" :key="name.id" class="drag-el" draggable="true"  @dragstart="startDrag($event, name)">
@@ -9,6 +10,10 @@
         </div>
       </div>
       <div v-else><h1>Loading data...</h1></div>
+    </div>
+    <div class="edit-zone">
+        <input type="button" @click="saveList()" value="save list of names" />
+    </div>
     </div>
     </div>
     <div v-else>
@@ -61,9 +66,6 @@
         this.names = left.concat(mid, right)
         console.log(posItem, pos)
       }
-      
-      //const item = this.items.find((item) => item.id == itemID)
-      //item.list = list
     },
 
     logOut () {
@@ -72,6 +74,16 @@
     },
     incrementIndex(i) {
         return i + 1;
+    },
+
+    async saveList(){
+        const res = await listService.saveListOfNames(this.names)
+        if (res){
+            alert("you succesfully saved the list")
+        }
+        else{
+            alert("something goes wrong")
+        }
     }
     } 
     
@@ -87,14 +99,29 @@
 }
 .drop-zone {
   background-color: #eee;
-  margin: auto;
+  flex:1;
   padding: 10px;
-  width:300px;
+  text-align: left;
 }
 .drag-el {
   background-color: #fff;
   margin-bottom: 10px;
   padding: 5px;
+}
+.edit-zone {
+  flex:1;
+  float: right;
+  min-height: 10 px;
+  width: 200px;
+  margin: 10 px;
+  background: rgb(238, 234, 234);
+}
+.main{
+  display:flex;
+  padding:10px;
+  margin: auto;
+  padding: 10px;
+  width:500px;
 }
     </style>
     

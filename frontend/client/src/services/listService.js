@@ -22,19 +22,27 @@ static async getAllNames() {
   }).catch(error => console.log(error));
 }
 
-static async getMyOrders_REST() {
-   return axios.get(url+'myOrders',{
-      withCredentials: true
-        }).then (response => {  
-          if (response.status == 200) { 
-            return response.data;
-          }
-          else {
-            alert ("data fetch error");
-            return null
-          }
-        }).catch(error => console.log(error));
-  }
+static async saveListOfNames(list){
+  const userId = localStorage.getItem("userId")
+  return axios.post(url + "saveList", {
+    list,
+    userId
+  }, {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    withCredentials: true
+    
+  }).then (response => { 
+    if (response.data.name) {
+     return response.data;
+    }
+    else {
+      console.log ("error of saving list");
+      return null
+    }    
+  }).catch(error => console.log(error));
+}
 
 
 }
