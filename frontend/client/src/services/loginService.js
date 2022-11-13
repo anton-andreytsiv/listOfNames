@@ -45,6 +45,7 @@ class loginService {
     }).then (response => { 
       if (response.status == 200) {
         localStorage.setItem('user', response.data.name);
+        localStorage.setItem('userId', response.data.id);
         return response.data;
       }
       else {
