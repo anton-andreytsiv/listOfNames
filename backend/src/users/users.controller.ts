@@ -7,11 +7,6 @@ export class UsersController {
      
 constructor (private usersService: UsersService){}
 
-@Get()
-async getNames (){ 
-    return await this.usersService.getNames()
-}
-
 @Post('login')
 @HttpCode(200)
 async login(@Body() user: loginUserDto): Promise<loginUserDto | null>{

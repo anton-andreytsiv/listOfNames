@@ -50,8 +50,4 @@ export class UsersService {
         }
     }
 
-    async getNames (){
-        return this.prisma.listOfNames.findMany();
-    }
-
 }

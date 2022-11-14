@@ -45,9 +45,6 @@ export class ListService {
             }       
         })
     }
-    async getOrders(): Promise<ordersDto[]>{
-        return this.prisma.orders.findMany()
-    }
 
     async updateName(id: number, name: string): Promise<namesDto>{
         return await this.prisma.listOfNames.update({
