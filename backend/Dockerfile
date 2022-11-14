@@ -6,8 +6,7 @@ RUN npm install
 EXPOSE 3000
 RUN chown -R node /app
 USER node
-#CMD [ "npm", "run", "dev"]
 RUN npx prisma generate
 RUN npx prisma migrate
-#RUN npm run seed2
+RUN npx ts-node prisma/seed.ts
 CMD ["npm", "run", "start:dev"]

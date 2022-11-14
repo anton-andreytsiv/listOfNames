@@ -53,12 +53,13 @@
         if (localStorage.getItem('user')){
             user.value = localStorage.getItem('user')
             userId = localStorage.getItem('userId')
-        }
-        const inpuNnames = await listService.getAllNames()
-        const list = await listService.getList(userId)
-        names.value = list.map(el =>{
-            return inpuNnames.find(name => name.id == el.nameId)
-        })
+        
+            const inpuNnames = await listService.getAllNames()
+            const list = await listService.getList(userId)
+            names.value = list.map(el =>{
+                return inpuNnames.find(name => name.id == el.nameId)
+            })
+    }
     
       return { user, names }
     },
@@ -104,10 +105,10 @@
     },
 
    async addNameToList(){
-        console.log(this.addName)
         const res = await listService.addName(this.addName)
         if(res){
             this.names.push(res)
+            this.addName = ''
             alert('name is added')
         } else {
             alert ('error of add')

@@ -11,17 +11,14 @@ import { ref } from 'vue'
 export default {
   name: 'App',
   
-
-setup(){
-
-  const user = ref (null)
-
-  if (localStorage.getItem('user')){
-    user.value = localStorage.getItem('user')
+  setup(){
+    const user = ref (null)
+    if (localStorage.getItem('user')){
+      user.value = localStorage.getItem('user')
+    }
+    return {user}
+  },
   }
-  return {user}
-},
-}
 </script>
 
 <style>
