@@ -35,7 +35,7 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - ./frontend/client.src:/app/src
+      - ./frontend/client/src:/app/src
         
  
 volumes:

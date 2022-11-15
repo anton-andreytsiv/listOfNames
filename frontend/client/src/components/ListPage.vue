@@ -15,7 +15,7 @@
         </div>
         </div>
         <div class="addName">
-            <div class="name"><input type="text" v-model='addName' placeholder="add new name to list" size="50"/></div>
+            <div class="name"><input type="text" v-model='addName' placeholder="add new name to list" size="40"/></div>
             <div class="addName"><input type="button" @click="addNameToList()" value="add name to the list" /></div>
         </div>
         <div>
